@@ -1,5 +1,7 @@
 const { Schema, model } = require('mongoose');
 const { nanoid } = require('nanoid');
+const { moment } = require('moment');
+moment.locale(ru);
 
 const advertisementSchema = new Schema({
   _id: {
@@ -25,12 +27,12 @@ const advertisementSchema = new Schema({
   createdAt: {
     type: Date,
     required: true,
-    default: Date.now
+    default: moment.format('lll'),
   },
   updatedAt: {
     type: Date,
     required: true,
-    default: Date.now
+    default: moment.format('lll'),
   },
   tags: {
     type: [String],

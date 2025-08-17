@@ -19,8 +19,11 @@
     "dev": "nodemon -L"
   },
   "dependencies": {
+    "argon2": "^0.44.0",
+    "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "express-session": "^1.18.2",
+    "moment": "^2.30.1",
     "mongoose": "^8.17.1",
     "nanoid": "^3.3.11",
     "passport": "^0.7.0",
