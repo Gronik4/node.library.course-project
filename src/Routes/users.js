@@ -12,3 +12,15 @@ router.post('/create', async(req, res)=> {
     res.json(newUser);
   }catch (e) {res.status(500).json(e)}
 })
+
+router.get('/:email', async(req, res)=> {
+  const { email } = req.params;
+  try{
+    const user = await UserModule.findByEmail(email);
+    res.json(user);
+  } catch (e) {
+    res.status(500).json(e)
+  }
+})
+
+module.exports = router;
