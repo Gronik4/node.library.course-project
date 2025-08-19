@@ -5,7 +5,7 @@ moment.locale(ru);
 
 const advertisementSchema = new Schema({
   _id: {
-    type: ObjectId,
+    type: Schema.Types.ObjectId,
     required: true,
     unique: true,
     default: nanoid(5),

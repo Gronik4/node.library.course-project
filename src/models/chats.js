@@ -6,13 +6,13 @@ moment.locale(ru);
 
 const chatSchema = new Schema({
   _id: {
-    type: ObjectId,
+    type: Schema.Types.ObjectId,
     required: true,
     unique: true,
     default: nanoid(5),
   },
   users: {
-    type: [ObjectId, ObjectId],
+    type: [Schema.Types.ObjectId, Schema.Types.ObjectId],
     required: true,
   },
 createdAt: {
@@ -21,7 +21,7 @@ createdAt: {
   default: moment.format('lll'),
 },
 messages: {
-  type: [messages],
+  type: [{ type: { type: String }, ticker: String }],
   default: ['',]
 }
 });

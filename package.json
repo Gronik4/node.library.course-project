@@ -13,7 +13,7 @@
   "license": "ISC",
   "author": "Gronik4",
   "type": "commonjs",
-  "main": "src/servsr.js",
+  "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon -L"
