@@ -27,18 +27,18 @@ const userSchema = new Schema({
   }
 });
 
-const Users = mongoose.model('UserModule', userSchema);
+const UsersModule = mongoose.model('UserModule', userSchema);
 
 exports.findByEmail = function(email, cb) {
   process.nextTick( async function() {
-    await mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true, useUnifiedTopology: true}, async (err)=> {
-      if(err) {
-        cb(new Error(`User ${email} does not found!!`))
-      }
-      return await cb(null, Users.find({email: email})); 
-    });
+    await mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true, useUnifiedTopology: true});
+    const db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'Ошибка подключения: '));
+    db.once('open', ()=> {
+      const user = UsersModule.findOne({email: email}, cb(null, user));
+    })
     mongoose.close();
   })
 }
 
-module.exports = Users;
+module.exports = UsersModule;

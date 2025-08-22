@@ -6,6 +6,8 @@ const UserModule = require('../models/users');
 router.post('/create', async(req, res)=> {
   const { email, password, name, contactPhone } = req.params;
   const passwordHash = await argon2.hash(password);
+  const data = {email: email, password: passwordHash, name: name, contactPhone: contactPhone}
+  
   const newUser = new UserModule(email, passwordHash, name, contactPhone);
   try{
     await newUser.save();

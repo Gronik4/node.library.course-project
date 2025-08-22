@@ -5,14 +5,14 @@ const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-const router = require('./Routes/index');
+//const router = require('./Routes/index');
 const userRouter = require('./Routes/users');
 const advertRouter = require('./Routes/advertisment');
 const chatRouter = require('./Routes/chats');
 
 const app = express();
 
-app.use('/', router);
+//app.use('/', router);
 app.use('/user', userRouter);
 app.use('/advertisements', advertRouter);
 app.use('/chats', chatRouter);
